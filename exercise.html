@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Menú lateral escamoteable sin JavaScript</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
+
+<link rel="stylesheet" type="text/css" href="css/stylesheet-barras.css">
+
+<link rel="stylesheet" type="text/css" href="css/cardian.css">
+
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+<style>
+body {
+    font-family: "Segoe UI", sans-serif;
+    font-size:100%;
+    margin:0;
+    padding:0;
+}
+
+
+header {
+    background:#333;
+    color:#eee;
+    width:100%;
+}
+
+input#abrir-cerrar {
+    visibility:hidden;
+    position: absolute;
+    top: -9999px;
+}
+
+
+label[for="abrir-cerrar"] {
+    cursor:pointer;
+    padding: 1rem;
+    background-color:#333;
+    color:#fff;
+    display:inline-block;
+    width:100%;
+
+}
+
+.cerrar {
+    display:none;
+}
+
+#sidebar {
+    width:0;
+}
+
+#contenido {
+    margin-left:0;
+}
+
+input#abrir-cerrar:checked ~ #sidebar {
+    width:100px;
+}
+
+input#abrir-cerrar:checked + label[for="abrir-cerrar"], input#abrir-cerrar:checked ~ #contenido {
+    margin-left:100px;
+    transition: margin-left .4s;
+}
+
+
+input#abrir-cerrar:checked + label[for="abrir-cerrar"] .cerrar {
+    display:inline;
+}
+
+input#abrir-cerrar:checked + label[for="abrir-cerrar"] .abrir {
+    display:none;
+}
+
+.sidebar {
+    position: fixed;
+    height: 100%;
+    width: 0;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #393933;
+    overflow-x: hidden;
+    transition: 0.4s;
+    padding: 1rem 0;
+    box-sizing:border-box;
+}
+
+.sidebar .boton-cerrar {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 2rem;
+    display: block;
+    padding: 0;
+    line-height: 1.5rem;
+    margin: 0;
+    height: 32px;
+    width: 32px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.sidebar ul, .sidebar li{
+    margin:0;
+    padding:0;
+    list-style:none inside;
+}
+
+.sidebar ul {
+    margin: 4rem auto;
+    display: block;
+    width: 80%;
+    min-width:100px;
+}
+
+.sidebar a {
+    display: block;
+    font-size: 120%;
+    color: #eee;
+    text-decoration: none;
+    
+}
+
+.sidebar a:hover{
+    color:#fff;
+    background-color: #CFCFD2;
+
+}
+
+
+#contenido {
+    transition: margin-left .4s;
+    padding: 1rem;
+}
+
+.abrir-cerrar {
+    color: #2E88C7;
+    font-size:1rem;   
+}
+.logo:hover{
+    cursor: pointer;
+
+}
+
+
+
+</style>
+
+
+</head>
+<body style="background-color:#AACCFF">
+    <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="">
+    <label for="abrir-cerrar">&#9776; <span class="abrir">Abrir</span><span class="cerrar">Cerrar</span></label>
+    <div id="sidebar" class="sidebar">
+        <div class="logo"><a href="circadian.html"> <img src="icons/circadianlogo.png" alt="Circadian" style="border-width: 0px" height="50px" width="40px" /></a></div>
+        <ul class="menu">
+            <li><a href="sleep.html" class="icons"><img src="icons/sleep.png" height="80px" width="80px"></a></li>
+            <li><a href="food.html" class="icons"><img src="icons/food.png" height="80px" width="80px"></a></li>
+            <li><a href="exercise.html" class="icons"><img src="icons/exercise.png" height="80px" width="80px"></a></li>
+
+        </ul>
+    </div>
+    <div id="contenido">
+
+        <h2>Are you ready for 2 hour of exercise?</h2>
+        <p>This is the routine we plan for you</p>
+        <ul>
+            <li>Ejercicios de cardio 40m
+                <ul>
+                    <li>20 Minutos de bicicleta<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></li>
+                    <li>20 Minutos de caminadora<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></li>
+                
+                </ul>
+
+
+
+
+            </li>
+        </ul>
+
+       
+        <ul>
+            <li> Ejercicios de pesas</li>
+            <ul>
+
+                <li>40 abdominales(3 repeticiones)<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></li>
+
+                <li>20 sentadillas(3 repeticiones)<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></li>
+
+              
+           
+
+
+
+
+            </ul>
+        </ul>
+
+
+ <div>
+
+        <center><div class="container">
+ <input id="start" name="controls" type="radio" />
+ <input id="stop" name="controls" type="radio" />
+ <input id="reset" name="controls" type="radio" />
+ <div class="timer">
+  <div class="cell">
+   <div class="numbers tenhour moveten">0 1 2 3 4 5 6 7 8 9</div>
+  </div>
+  <div class="cell">
+   <div class="numbers hour moveten">0 1 2 3 4 5 6 7 8 9</div>
+  </div>
+  <div class="cell divider"><div class="numbers">:</div></div>
+  <div class="cell">
+   <div class="numbers tenminute movesix">0 1 2 3 4 5 6</div>
+  </div>
+  <div class="cell">
+   <div class="numbers minute moveten">0 1 2 3 4 5 6 7 8 9</div>
+  </div>
+  <div class="cell divider"><div class="numbers">:</div></div>
+  <div class="cell">
+   <div class="numbers tensecond movesix">0 1 2 3 4 5 6</div>
+  </div>
+  <div class="cell">
+   <div class="numbers second moveten">0 1 2 3 4 5 6 7 8 9</div>
+  </div>
+  <div class="cell divider"><div class="numbers">:</div></div>
+  <div class="cell">
+   <div class="numbers milisecond moveten">0 1 2 3 4 5 6 7 8 9</div>
+  </div>
+  <div class="cell">
+   <div class="numbers tenmilisecond moveten">0 1 2 3 4 5 6 7 8 9</div>
+  </div>
+  <div class="cell">
+   <div class="numbers hundredmilisecond moveten">0 1 2 3 4 5 6 7 8 9</div>
+  </div>
+ </div>
+ <div id="timer_controls">
+  <label for="start">Start</label>
+  <label for="stop">Stop</label>
+  <label for="reset">Reset</label>
+ </div>
+</div></center>
+
+
+<script src="http://hostredeando.ucoz.es/js/prefixfree.js" type="text/javascript"></script>
+
+
+<style>
+.container {
+ padding: 20px;width: 400px;
+ text-align: center;
+}
+
+.timer {
+ padding: 10px;
+ background: #000000;
+ overflow: hidden;
+ display: inline-block;
+ border: 7px solid #efefef;
+ border-radius: 5px;
+ position: relative;
+box-shadow:
+  0 -2px 10px 1px rgba(0, 0, 0, 0.75),
+  0 5px 20px -10px rgba(0, 0, 0, 1);
+
+}
+
+.cell {
+ width: 0.60em;
+ height: 40px;
+ font-size: 50px;
+ overflow: hidden;
+ position: relative;
+ float: left;
+}
+
+.numbers {
+ width: 0.6em;
+ line-height: 40px;
+ font-family: digital, arial, verdana;
+ text-align: center;
+ color: #fff;
+
+ position: absolute;
+ top: 0;
+ left: 0;
+
+
+ text-shadow: 0 0 5px rgba(255, 255, 255, 1);
+}
+
+#timer_controls {
+ margin-top: 5px;
+}
+#timer_controls label {
+ box-shadow:
+  0 -2px 10px 1px rgba(0, 0, 0, 0.75),
+  0 5px 20px -10px rgba(0, 0, 0, 1);
+
+cursor: pointer;
+ padding: 5px 10px;
+ background: #efefef;
+ font-family: arial, verdana, tahoma;
+ font-size: 11px;
+ border-radius: 0 0 3px 3px;border:1px solid #989293;
+}
+input[name="controls"] {display: none;}
+
+
+#stop:checked~.timer .numbers {animation-play-state: paused;}
+#start:checked~.timer .numbers {animation-play-state: running;}
+#reset:checked~.timer .numbers {animation: none;}
+
+.moveten {
+ /*The digits move but dont look good. We will use steps now
+ 10 digits = 10 steps. You can now see the digits swapping instead of
+ moving pixel-by-pixel*/
+ animation: moveten 1s steps(10, end) infinite;
+ /*By default animation should be paused*/
+ animation-play-state: paused;
+}
+.movesix {
+ animation: movesix 1s steps(6, end) infinite;
+ animation-play-state: paused;
+}
+
+.second {animation-duration: 10s;}
+.tensecond {animation-duration: 60s;} /*60 times .second*/
+
+.milisecond {animation-duration: 1s;} /*1/10th of .second*/
+.tenmilisecond {animation-duration: 0.1s;}
+.hundredmilisecond {animation-duration: 0.01s;}
+
+.minute {animation-duration: 600s;} /*60 times .second*/
+.tenminute {animation-duration: 3600s;} /*60 times .minute*/
+
+.hour {animation-duration: 36000s;} /*60 times .minute*/
+.tenhour {animation-duration: 360000s;} /*10 times .hour*/
+
+@keyframes moveten {
+ 0% {top: 0;}
+ 100% {top: -400px;}
+ /*height = 40. digits = 10. hence -400 to move it completely to the top*/
+}
+
+@keyframes movesix {
+ 0% {top: 0;}
+ 100% {top: -240px;}
+ /*height = 40. digits = 6. hence -240 to move it completely to the top*/
+}
+
+@font-face {
+ font-family: 'digital';
+ src: url('http://thecodeplayer.com/uploads/fonts/DS-DIGI.TTF');
+
+</style>
+
+     </div>
+
+</div>
+
+    
+
+   
+</body>
+</html> 

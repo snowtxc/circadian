@@ -1,0 +1,33 @@
+#sidebar img{
+	height: 80px;
+	width: 80px;
+	border-radius: 40%;
+
+}
+
+
+
+.icons{
+	margin-bottom: 20px;
+}
+
+.logo:hover{
+	
+
+
+}
+
+.feedbacks-emotional{
+       width: 300px;
+}
+
+.feedbacks-emotional img{
+
+	margin: 15px;
+
+}
+
+.feedbacks-emotional img:hover{
+	cursor: pointer;
+
+}

@@ -1,0 +1,34 @@
+.container-food{
+	width: 300px;
+	background-color: #8FDFFF;
+	display: inline-block;
+	margin: 20px;
+
+}
+
+.container-food ul{
+	list-style: none;
+}
+
+.container-food ul li{
+	font-size: 15px;
+}
+
+.grafica{
+	background: #fff;
+}
+
+.feedbacks-digestion{
+       width: 300px;
+}
+
+.feedbacks-digestion img{
+
+	margin: 15px;
+
+}
+
+.feedbacks-digestion img:hover{
+	cursor: pointer;
+
+}
